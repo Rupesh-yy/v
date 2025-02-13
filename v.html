@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&display=swap');
+        
+        body {
+            background: radial-gradient(circle, rgba(50, 0, 50, 1) 10%, rgba(0, 0, 0, 1) 90%);
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            color: white;
+            overflow: hidden;
+            height: 100vh;
+        }
+        .message {
+            font-size: 40px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: 20%;
+            text-shadow: 3px 3px 12px rgba(255, 0, 150, 0.9);
+            animation: fadeIn 2s ease-in-out;
+            position: relative;
+            z-index: 10;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .heart {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: rgba(255, 0, 100, 0.8);
+            clip-path: polygon(50% 15%, 85% 30%, 100% 65%, 50% 100%, 0% 65%, 15% 30%);
+            opacity: 0.8;
+            animation: fall 4s linear infinite;
+            filter: drop-shadow(0 0 8px rgba(255, 0, 100, 0.8));
+        }
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="message">
+        ❤️ HAPPY VALENTINE'S DAY! ❤️ <br> 
+        THANK YOU FOR BEING SUCH A WONDERFUL FRIEND! 💖
+    </div>
+    <script>
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            document.body.appendChild(heart);
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+            heart.style.transform = `rotate(${Math.random() * 360}deg)`;
+            setTimeout(() => heart.remove(), 4000);
+        }
+        setInterval(createHeart, 200);
+    </script>
+</body>
+</html>
